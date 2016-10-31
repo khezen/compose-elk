@@ -83,6 +83,6 @@ Configuration file is editable from `/srv/logstash/conf.d/logstash.conf`.
 
 You can find default config [there](https://github.com/Khezen/docker-logstash/blob/master/config/logstash.conf).
 
-*NOTE*: It is possible to use [environment in logstash.conf](https://www.elastic.co/guide/en/logstash/current/environment-variables.html).
+*NOTE*: It is possible to use [environment variables in logstash.conf](https://www.elastic.co/guide/en/logstash/current/environment-variables.html).
 
 You can find documentation [there](https://www.elastic.co/guide/en/logstash/current/configuration.html).
