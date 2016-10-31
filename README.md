@@ -92,7 +92,7 @@ You can find documentation [there](https://www.elastic.co/guide/en/logstash/curr
 
 * [Overview](https://www.elastic.co/guide/en/beats/libbeat/current/beats-reference.html),
 * [Non offical beats](https://www.elastic.co/guide/en/beats/libbeat/current/community-beats.html),
-* [install](https://www.elastic.co/guide/en/beats/libbeat/current/installing-beats.html).
+* [installation](https://www.elastic.co/guide/en/beats/libbeat/current/installing-beats.html).
 
 ### Configuration
 
@@ -104,4 +104,4 @@ output.elasticsearch:
   password: <beats_pwd>
 
 ```
-Configuration file is located in `/etc/packetbeat/packetbeat.yml` if your are dealing with packetbeat for example.
+Configuration file is located in `/etc/packetbeat/packetbeat.yml` if your are dealing with `packetbeat` for example.
