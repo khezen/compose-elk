@@ -9,11 +9,12 @@ services:
             logstash_pwd: changeme
         volumes:
             - /srv/elasticsearch/data:/data
-            - /srv/elasticsearch/config:/elasticsearch/config/
+            - /srv/elasticsearch/conf.d:/elasticsearch/conf.d/
         ports:
              - "9200:9200"
              - "9300:9300"
-        network_mode: bridge
+        networks:
+            - elk
         restart: always
 
     kibana:
@@ -28,7 +29,8 @@ services:
             - /srv/kibana:/etc/kibana
         ports:
              - "5601:5601"
-        network_mode: bridge
+        networks:
+            - elk
         restart: always
 
     logstash:
@@ -41,9 +43,14 @@ services:
             elasticsearch_host: elasticsearch
             elasticsearch_port: 9200    
         volumes:
-            - /srv/logstash:/etc/logstash        
+            - /srv/logstash/conf.d:/etc/logstash/conf.d
         ports:
              - "5000:5000"
              - "5001:5001"
-        network_mode: bridge
+        networks:
+            - elk
         restart: always
+
+networks:
+  elk:
+    driver: bridge
