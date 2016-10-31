@@ -1,0 +1,49 @@
+version: '2'
+services:
+    elasticsearch:
+        image: khezen/elasticsearch
+        environment:
+            heap_size: 1g
+            elastic_pwd: changeme
+            kibana_pwd: changeme
+            logstash_pwd: changeme
+        volumes:
+            - /srv/elasticsearch/data:/data
+            - /srv/elasticsearch/config:/elasticsearch/config/
+        ports:
+             - "9200:9200"
+             - "9300:9300"
+        network_mode: bridge
+        restart: always
+
+    kibana:
+        links:
+            - elasticsearch
+        image: khezen/kibana
+        environment:
+            kibana_pwd: changeme
+            elasticsearch_host: elasticsearch
+            elasticsearch_port: 9200
+        volumes:
+            - /srv/kibana:/etc/kibana
+        ports:
+             - "5601:5601"
+        network_mode: bridge
+        restart: always
+
+    logstash:
+        links:
+            - elasticsearch
+        image: khezen/logstash
+        environment:
+            heap_size: 1g
+            logstash_pwd: changeme
+            elasticsearch_host: elasticsearch
+            elasticsearch_port: 9200    
+        volumes:
+            - /srv/logstash:/etc/logstash        
+        ports:
+             - "5000:5000"
+             - "5001:5001"
+        network_mode: bridge
+        restart: always
