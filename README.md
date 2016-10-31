@@ -9,6 +9,7 @@ By combining the massively popular Elasticsearch, Logstash, and Kibana, Elastic 
 * [<img src="https://static-www.elastic.co/fr/assets/blt9a26f88bfbd20eb5/icon-elasticsearch-bb.svg?q=802" width="50" height="50">](https://www.elastic.co/fr/products/elasticsearch) [![](https://images.microbadger.com/badges/image/khezen/elasticsearch.svg)](https://hub.docker.com/r/khezen/elasticsearch/) [khezen/elasticsearch](https://github.com/Khezen/docker-elasticsearch)
 * [<img src="https://static-www.elastic.co/fr/assets/blt282ae2420e32fc38/icon-kibana-bb.svg?q=802" width="50" height="50">](https://www.elastic.co/fr/products/kibana) [![](https://images.microbadger.com/badges/image/khezen/kibana.svg)](https://hub.docker.com/r/khezen/kibana/) [khezen/kibana](https://github.com/Khezen/docker-kibana)
 * [<img src="https://static-www.elastic.co/fr/assets/blt946bc636d34a70eb/icon-logstash-bb.svg?q=600" width="50" height="50">](https://www.elastic.co/fr/products/logstash) [![](https://images.microbadger.com/badges/image/khezen/logstash.svg)](https://hub.docker.com/r/khezen/logstash/) [khezen/logstash](https://github.com/Khezen/docker-logstash)
+* [<img src="https://static-www.elastic.co/assets/blt121ead33d4ed1f55/icon-beats-bb.svg?q=600" width="50" height="50">](https://www.elastic.co/products/beats) [Beats](https://www.elastic.co/guide/en/beats/libbeat/current/installing-beats.html)
 
 
 # Setup
@@ -86,3 +87,21 @@ You can find default config [there](https://github.com/Khezen/docker-logstash/bl
 *NOTE*: It is possible to use [environment variables in logstash.conf](https://www.elastic.co/guide/en/logstash/current/environment-variables.html).
 
 You can find documentation [there](https://www.elastic.co/guide/en/logstash/current/configuration.html).
+
+## Beats
+
+* [Overview](https://www.elastic.co/guide/en/beats/libbeat/current/beats-reference.html),
+* [Non offical beats](https://www.elastic.co/guide/en/beats/libbeat/current/community-beats.html),
+* [install](https://www.elastic.co/guide/en/beats/libbeat/current/installing-beats.html).
+
+### Configuration
+
+You need to provide elasticsearch `host:port` and credentials for `beats` user:
+```
+output.elasticsearch:
+  hosts: ["<elasticsearch_host>:<elasticsearch_port>"]
+  user: beats
+  password: <beats_pwd>
+
+```
+Configuration file is located in `/etc/packetbeat/packetbeat.yml` if your are dealing with packetbeat for example.
