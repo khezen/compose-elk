@@ -7,9 +7,10 @@ services:
             elastic_pwd: changeme
             kibana_pwd: changeme
             logstash_pwd: changeme
+            beats_pwd: changeme
         volumes:
             - /srv/elasticsearch/data:/data
-            - /srv/elasticsearch/conf.d:/elasticsearch/conf.d/
+            - /srv/elasticsearch/config:/etc/elasticsearch/config/
         ports:
              - "9200:9200"
              - "9300:9300"
