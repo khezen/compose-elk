@@ -69,7 +69,7 @@ Configuration file is editable from `/srv/elasticsearch/conf.d/elasticsearch.yml
 
 You can find default config [there](https://github.com/Khezen/docker-elasticsearch/blob/master/config/elasticsearch.yml).
 
-You can find help for elasticsearch configuration [there](https://www.elastic.co/guide/en/elasticsearch/reference/current/settings.html).
+You can find help with elasticsearch configuration [there](https://www.elastic.co/guide/en/elasticsearch/reference/current/settings.html).
 
 You can edit `docker-compose.yml` to set [khezen/elasticsearch](https://github.com/Khezen/docker-elasticsearch) environment variables yourself.
 ```
@@ -98,7 +98,7 @@ Configuration file is editable from `/srv/kibana/kibana.yml`.
 
 You can find default config [there](https://github.com/Khezen/docker-kibana/blob/master/config/default.yml).
 
-You can find documentation [there](https://www.elastic.co/guide/en/kibana/current/settings.html).
+You can find help with kibana configuration [there](https://www.elastic.co/guide/en/kibana/current/settings.html).
 
 You can edit `docker-compose.yml` to set [khezen/kibana](https://github.com/Khezen/docker-kibana) environment variables yourself.
 ```
@@ -127,7 +127,7 @@ You can find default config [there](https://github.com/Khezen/docker-logstash/bl
 
 *NOTE*: It is possible to use [environment variables in logstash.conf](https://www.elastic.co/guide/en/logstash/current/environment-variables.html).
 
-You can find documentation [there](https://www.elastic.co/guide/en/logstash/current/configuration.html).
+You can find help with logstash configuration [there](https://www.elastic.co/guide/en/logstash/current/configuration.html).
 
 You can edit `docker-compose.yml` to set [khezen/logstash](https://github.com/Khezen/docker-logstash) environment variables yourself.
 ```
