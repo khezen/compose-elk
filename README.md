@@ -69,7 +69,28 @@ Configuration file is editable from `/srv/elasticsearch/conf.d/elasticsearch.yml
 
 You can find default config [there](https://github.com/Khezen/docker-elasticsearch/blob/master/config/elasticsearch.yml).
 
-You can find documentation [there](https://www.elastic.co/guide/en/elasticsearch/reference/current/settings.html).
+You can find help for elasticsearch configuration [there](https://www.elastic.co/guide/en/elasticsearch/reference/current/settings.html).
+
+You can edit `docker-compose.yml` to set [khezen/elasticsearch](https://github.com/Khezen/docker-elasticsearch) environment variables yourself.
+```
+elasticsearch:
+    image: khezen/elasticsearch
+    environment:
+        heap_size: 1g
+        elastic_pwd: changeme
+        kibana_pwd: changeme
+        logstash_pwd: changeme
+        beats_pwd: changeme
+    volumes:
+        - /srv/elasticsearch/data:/data
+        - /srv/elasticsearch/config:/etc/elasticsearch/config/
+    ports:
+          - "9200:9200"
+          - "9300:9300"
+    networks:
+        - elk
+    restart: always
+```
 
 ## Kibana
 
@@ -78,6 +99,25 @@ Configuration file is editable from `/srv/kibana/kibana.yml`.
 You can find default config [there](https://github.com/Khezen/docker-kibana/blob/master/config/default.yml).
 
 You can find documentation [there](https://www.elastic.co/guide/en/kibana/current/settings.html).
+
+You can edit `docker-compose.yml` to set [khezen/kibana](https://github.com/Khezen/docker-kibana) environment variables yourself.
+```
+kibana:
+    links:
+        - elasticsearch
+    image: khezen/kibana
+    environment:
+        kibana_pwd: changeme
+        elasticsearch_host: elasticsearch
+        elasticsearch_port: 9200
+    volumes:
+        - /srv/kibana:/etc/kibana
+    ports:
+          - "5601:5601"
+    networks:
+        - elk
+    restart: always
+```
 
 ## logstash
 
@@ -88,6 +128,27 @@ You can find default config [there](https://github.com/Khezen/docker-logstash/bl
 *NOTE*: It is possible to use [environment variables in logstash.conf](https://www.elastic.co/guide/en/logstash/current/environment-variables.html).
 
 You can find documentation [there](https://www.elastic.co/guide/en/logstash/current/configuration.html).
+
+You can edit `docker-compose.yml` to set [khezen/logstash](https://github.com/Khezen/docker-logstash) environment variables yourself.
+```
+logstash:
+    links:
+        - elasticsearch
+    image: khezen/logstash
+    environment:
+        heap_size: 1g
+        logstash_pwd: changeme
+        elasticsearch_host: elasticsearch
+        elasticsearch_port: 9200    
+    volumes:
+        - /srv/logstash/conf.d:/etc/logstash/conf.d
+    ports:
+          - "5000:5000"
+          - "5001:5001"
+    networks:
+        - elk
+    restart: always
+```
 
 ## Beats
 
