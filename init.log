@@ -1,1 +1,3 @@
-{"message":"logstash-* ready for creation"}
+{
+    message => "init"
+}
