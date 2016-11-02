@@ -168,3 +168,20 @@ output.elasticsearch:
 
 ```
 Configuration file is located in `/etc/packetbeat/packetbeat.yml` if your are dealing with `packetbeat` for example.
+
+## X-pack
+
+### Watcher
+[Alerting on Cluster and Index Events](https://www.elastic.co/guide/en/x-pack/current/xpack-alerting.html#xpack-alerting).
+
+[This getting started guide](https://www.elastic.co/guide/en/x-pack/current/watcher-getting-started.html) walks you through setting up alerting and creating your first watches, and introduces the building blocks you’ll use to create custom watches.
+
+### Reporter
+
+[Reporting from Kibana](https://www.elastic.co/guide/en/x-pack/current/xpack-reporting.html).
+
+[This getting started guide](https://www.elastic.co/guide/en/x-pack/current/reporting-getting-started.html) walks you through setting up reporting and creating your first automated reports.
+
+### Graph
+
+[Graphing connections in your data](https://www.elastic.co/guide/en/x-pack/current/xpack-graph.html).
