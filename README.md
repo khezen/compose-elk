@@ -94,6 +94,11 @@ elasticsearch:
 
 ## Kibana
 
+* [Discover](https://www.elastic.co/guide/en/kibana/current/discover.html)
+* [Visualize](https://www.elastic.co/guide/en/kibana/current/visualize.html)
+* [Dashboard](https://www.elastic.co/guide/en/kibana/current/dashboard.html)
+* [Timelion](https://www.elastic.co/guide/en/kibana/current/timelion.html)
+
 Configuration file is editable from `/srv/kibana/kibana.yml`.
 
 You can find default config [there](https://github.com/Khezen/docker-kibana/blob/master/config/default.yml).
