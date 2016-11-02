@@ -162,6 +162,7 @@ You need to provide elasticsearch `host:port` and credentials for `beats` user:
 ```
 output.elasticsearch:
   hosts: ["<elasticsearch_host>:<elasticsearch_port>"]
+  index: "packetbeat"
   user: beats
   password: <beats_pwd>
 
