@@ -94,10 +94,10 @@ elasticsearch:
 
 ## Kibana
 
-* [Discover](https://www.elastic.co/guide/en/kibana/current/discover.html)
-* [Visualize](https://www.elastic.co/guide/en/kibana/current/visualize.html)
-* [Dashboard](https://www.elastic.co/guide/en/kibana/current/dashboard.html)
-* [Timelion](https://www.elastic.co/guide/en/kibana/current/timelion.html)
+* [Discover](https://www.elastic.co/guide/en/kibana/current/discover.html) - explore your data,
+* [Visualize](https://www.elastic.co/guide/en/kibana/current/visualize.html) - create visualizations of your data,
+* [Dashboard](https://www.elastic.co/guide/en/kibana/current/dashboard.html) - displays a collection of saved visualizations,
+* [Timelion](https://www.elastic.co/guide/en/kibana/current/timelion.html) - combine totally independent data sources within a single visualization.
 
 Configuration file is editable from `/srv/kibana/kibana.yml`.
 
