@@ -47,7 +47,7 @@ services:
             - /srv/logstash/conf.d:/etc/logstash/conf.d
         ports:
              - "5000:5000"
-             - "5001:5001"
+             - "5001:5001/udp"
         networks:
             - elk
         restart: always
