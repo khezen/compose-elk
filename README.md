@@ -20,7 +20,7 @@ By combining the massively popular Elasticsearch, Logstash, and Kibana, Elastic 
 2. [Docker compose](https://docs.docker.com/compose/install/)
 3. Clone this repository: `git clone https://github.com/khezen/docker-elk`
 
-## [File Descriptors and MMap](https://www.elastic.co/guide/en/elasticsearch/guide/current/_file_descriptors_and_mmap.html)
+## [File Descriptors and MMap](https://www.elastic.co/guide/en/elasticsearch/guide/current/_file_descriptors_and_mmap.html) (Linux Only)
 
 run the following command on your host:
 ```
