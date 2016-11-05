@@ -65,7 +65,7 @@ By Default, The Elastic Stack exposes the following ports:
 
 ## Elasticsearch
 
-Configuration file is editable from `/srv/elasticsearch/conf.d/elasticsearch.yml`.
+Configuration file is editable from `/srv/elasticsearch/config/elasticsearch.yml`.
 
 You can find default config [there](https://github.com/Khezen/docker-elasticsearch/blob/master/config/elasticsearch.yml).
 
