@@ -95,8 +95,13 @@ elasticsearch:
 ## Kibana
 
 * [Discover](https://www.elastic.co/guide/en/kibana/current/discover.html) - explore your data,
+
 * [Visualize](https://www.elastic.co/guide/en/kibana/current/visualize.html) - create visualizations of your data,
+  * You can find exported visualizations under `./visualizations` folder,
+  * To import them in Kibana, go to `Managment->Saved Objects` panel,
+
 * [Dashboard](https://www.elastic.co/guide/en/kibana/current/dashboard.html) - displays a collection of saved visualizations,
+
 * [Timelion](https://www.elastic.co/guide/en/kibana/current/timelion.html) - combine totally independent data sources within a single visualization.
 
 Configuration file is editable from `/srv/kibana/kibana.yml`.
