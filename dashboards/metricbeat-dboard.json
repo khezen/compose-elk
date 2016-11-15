@@ -1,14 +1,31 @@
 [
   {
-    "_id": "Hardware-Overview",
+    "_id": "Monitor-Disk",
     "_type": "dashboard",
     "_source": {
-      "title": "Hardware Overview",
+      "title": "Monitor Disk",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[{\"id\":\"CPU-Breakdown\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":4,\"size_y\":4,\"col\":3,\"row\":1},{\"id\":\"CPU-cores-breakdown\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":2,\"size_y\":4,\"col\":1,\"row\":1},{\"id\":\"Memory-usage\",\"type\":\"visualization\",\"panelIndex\":3,\"size_x\":3,\"size_y\":4,\"col\":7,\"row\":1},{\"id\":\"Disk-bytes-read-slash-write\",\"type\":\"visualization\",\"panelIndex\":4,\"size_x\":3,\"size_y\":4,\"col\":10,\"row\":1}]",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Disk-bytes-read-slash-write\",\"panelIndex\":1,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Disk-I-slash-O-Count\",\"panelIndex\":5,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"id\":\"Disk-I-slash-O-Time\",\"type\":\"visualization\",\"panelIndex\":6,\"size_x\":4,\"size_y\":3,\"col\":9,\"row\":1},{\"col\":1,\"id\":\"Disk-Space\",\"panelIndex\":4,\"row\":4,\"size_x\":12,\"size_y\":5,\"type\":\"visualization\"}]",
       "optionsJSON": "{\"darkTheme\":false}",
-      "uiStateJSON": "{\"P-2\":{\"vis\":{\"legendOpen\":false}},\"P-3\":{\"vis\":{\"legendOpen\":false}},\"P-1\":{\"vis\":{\"legendOpen\":false}},\"P-4\":{\"vis\":{\"legendOpen\":false}}}",
+      "uiStateJSON": "{\"P-4\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Monitor-CPU",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Monitor CPU",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"id\":\"CPU-Breakdown\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":8,\"size_y\":4,\"col\":1,\"row\":1},{\"id\":\"CPU-cores-breakdown\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":4,\"size_y\":4,\"col\":9,\"row\":1}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{}",
       "version": 1,
       "timeRestore": false,
       "kibanaSavedObjectMeta": {
@@ -23,7 +40,7 @@
       "title": "Monitor Network",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[{\"id\":\"Network-byte-up-slash-down\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":3,\"size_y\":5,\"col\":1,\"row\":1},{\"id\":\"Network-dropped-packet-up-slash-down\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":3,\"size_y\":5,\"col\":10,\"row\":1},{\"id\":\"Network-error-packet-up-slash-down\",\"type\":\"visualization\",\"panelIndex\":3,\"size_x\":3,\"size_y\":5,\"col\":7,\"row\":1},{\"id\":\"Network-packet-up-slash-down\",\"type\":\"visualization\",\"panelIndex\":4,\"size_x\":3,\"size_y\":5,\"col\":4,\"row\":1}]",
+      "panelsJSON": "[{\"id\":\"Network-byte-up-slash-down\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":3,\"size_y\":3,\"col\":1,\"row\":1},{\"id\":\"Network-packet-up-slash-down\",\"type\":\"visualization\",\"panelIndex\":4,\"size_x\":3,\"size_y\":3,\"col\":4,\"row\":1},{\"id\":\"Network-error-packet-up-slash-down\",\"type\":\"visualization\",\"panelIndex\":3,\"size_x\":3,\"size_y\":3,\"col\":7,\"row\":1},{\"id\":\"Network-dropped-packet-up-slash-down\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":3,\"size_y\":3,\"col\":10,\"row\":1}]",
       "optionsJSON": "{\"darkTheme\":false}",
       "uiStateJSON": "{}",
       "version": 1,
@@ -34,53 +51,36 @@
     }
   },
   {
-    "_id": "CPU-usage",
-    "_type": "dashboard",
-    "_source": {
-      "title": "Monitor CPU",
-      "hits": 0,
-      "description": "",
-      "panelsJSON": "[\n  {\n    \"id\": \"CPU-Breakdown\",\n    \"type\": \"visualization\",\n    \"panelIndex\": 1,\n    \"size_x\": 8,\n    \"size_y\": 6,\n    \"col\": 1,\n    \"row\": 1\n  },\n  {\n    \"id\": \"CPU-cores-breakdown\",\n    \"type\": \"visualization\",\n    \"panelIndex\": 2,\n    \"size_x\": 4,\n    \"size_y\": 6,\n    \"col\": 9,\n    \"row\": 1\n  }\n]",
-      "optionsJSON": "{\n  \"darkTheme\": false\n}",
-      "uiStateJSON": "{}",
-      "version": 1,
-      "timeRestore": false,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\n  \"filter\": [\n    {\n      \"query\": {\n        \"query_string\": {\n          \"query\": \"*\",\n          \"analyze_wildcard\": true\n        }\n      }\n    }\n  ]\n}"
-      }
-    }
-  },
-  {
-    "_id": "Memmory-Usage",
+    "_id": "Monitor-Memmory",
     "_type": "dashboard",
     "_source": {
       "title": "Monitor Memmory",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[\n  {\n    \"id\": \"Memory-usage\",\n    \"type\": \"visualization\",\n    \"panelIndex\": 1,\n    \"size_x\": 6,\n    \"size_y\": 5,\n    \"col\": 1,\n    \"row\": 1\n  },\n  {\n    \"id\": \"Swap-usage\",\n    \"type\": \"visualization\",\n    \"panelIndex\": 2,\n    \"size_x\": 6,\n    \"size_y\": 5,\n    \"col\": 7,\n    \"row\": 1\n  }\n]",
-      "optionsJSON": "{\n  \"darkTheme\": false\n}",
+      "panelsJSON": "[{\"id\":\"Memory-usage\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":6,\"size_y\":3,\"col\":1,\"row\":1},{\"id\":\"Swap-usage\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":6,\"size_y\":3,\"col\":7,\"row\":1}]",
+      "optionsJSON": "{\"darkTheme\":false}",
       "uiStateJSON": "{}",
       "version": 1,
       "timeRestore": false,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\n  \"filter\": [\n    {\n      \"query\": {\n        \"query_string\": {\n          \"query\": \"*\",\n          \"analyze_wildcard\": true\n        }\n      }\n    }\n  ]\n}"
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
       }
     }
   },
   {
-    "_id": "Monitor-Disk",
+    "_id": "Hardware-Overview",
     "_type": "dashboard",
     "_source": {
-      "title": "Monitor Disk",
+      "title": "Hardware Overview",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[{\"col\":1,\"id\":\"Disk-bytes-read-slash-write\",\"panelIndex\":1,\"row\":1,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Disk-I-slash-O-Count\",\"panelIndex\":5,\"row\":1,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Disk-Space\",\"panelIndex\":4,\"row\":5,\"size_x\":12,\"size_y\":5,\"type\":\"visualization\"},{\"id\":\"Disk-I-slash-O-Time\",\"type\":\"visualization\",\"panelIndex\":6,\"size_x\":4,\"size_y\":4,\"col\":9,\"row\":1}]",
+      "panelsJSON": "[{\"id\":\"CPU-cores-breakdown\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":2,\"size_y\":3,\"col\":1,\"row\":1},{\"id\":\"CPU-Breakdown\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":4,\"size_y\":3,\"col\":3,\"row\":1},{\"id\":\"Memory-usage\",\"type\":\"visualization\",\"panelIndex\":3,\"size_x\":3,\"size_y\":3,\"col\":7,\"row\":1},{\"id\":\"Disk-bytes-read-slash-write\",\"type\":\"visualization\",\"panelIndex\":4,\"size_x\":3,\"size_y\":3,\"col\":10,\"row\":1}]",
       "optionsJSON": "{\"darkTheme\":false}",
-      "uiStateJSON": "{\"P-4\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}}",
+      "uiStateJSON": "{\"P-2\":{\"vis\":{\"legendOpen\":false}},\"P-3\":{\"vis\":{\"legendOpen\":false}},\"P-1\":{\"vis\":{\"legendOpen\":false}},\"P-4\":{\"vis\":{\"legendOpen\":false}}}",
       "version": 1,
       "timeRestore": false,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
       }
     }
   }
