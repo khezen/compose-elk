@@ -101,6 +101,8 @@ elasticsearch:
   * To import them in Kibana, go to `Managment->Saved Objects` panel,
 
 * [Dashboard](https://www.elastic.co/guide/en/kibana/current/dashboard.html) - displays a collection of saved visualizations,
+  * You can find exported dashboards under `./dashboards` folder,
+  * To import them in Kibana, go to `Managment->Saved Objects` panel,
 
 * [Timelion](https://www.elastic.co/guide/en/kibana/current/timelion.html) - combine totally independent data sources within a single visualization.
 
