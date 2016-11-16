@@ -3,11 +3,11 @@ services:
     elasticsearch:
         image: khezen/elasticsearch
         environment:
-            heap_size: 1g
-            elastic_pwd: changeme
-            kibana_pwd: changeme
-            logstash_pwd: changeme
-            beats_pwd: changeme
+            HEAP_SIZE: 1g
+            ELASTIC_PWD: changeme
+            KIBANA_PWD: changeme
+            LOGSTASH_PWD: changeme
+            BEATS_PWD: changeme
         volumes:
             - /srv/elasticsearch/data:/data
             - /srv/elasticsearch/config:/etc/elasticsearch/config/
@@ -23,9 +23,9 @@ services:
             - elasticsearch
         image: khezen/kibana
         environment:
-            kibana_pwd: changeme
-            elasticsearch_host: elasticsearch
-            elasticsearch_port: 9200
+            KIBANA_PWD: changeme
+            ELASTICSEARCH_HOST: elasticsearch
+            ELASTICSEARCH_PORT: 9200
         volumes:
             - /srv/kibana:/etc/kibana
         ports:
@@ -39,10 +39,10 @@ services:
             - elasticsearch
         image: khezen/logstash
         environment:
-            heap_size: 1g
-            logstash_pwd: changeme
-            elasticsearch_host: elasticsearch
-            elasticsearch_port: 9200    
+            HEAP_SIZE: 1g
+            LOGSTASH_PWD: changeme
+            ELASTICSEARCH_HOST: elasticsearch
+            ELASTICSEARCH_PORT: 9200    
         volumes:
             - /srv/logstash/conf.d:/etc/logstash/conf.d
         ports:

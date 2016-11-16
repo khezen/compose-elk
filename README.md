@@ -30,7 +30,7 @@ You can set it permanently by modifying `vm.max_map_count` setting in your `/etc
 
 # Usage
 
-Start the ELK stack using *docker-compose*:
+Start the Elastic Stack using *docker-compose*:
 
 ```bash
 $ docker-compose up
@@ -45,7 +45,7 @@ $ docker-compose up -d
 Now that the stack is running, you'll want to inject logs in it. The shipped logstash configuration allows you to send content via tcp or udp:
 
 ```bash
-$ nc localhost 5000 < ./init.log
+$ nc localhost 5000 < ./logstash-init.log
 ```
 
 And then access Kibana by hitting [http://localhost:5601](http://localhost:5601) with a web browser.
@@ -76,11 +76,11 @@ You can edit `docker-compose.yml` to set [khezen/elasticsearch](https://github.c
 elasticsearch:
     image: khezen/elasticsearch
     environment:
-        heap_size: 1g
-        elastic_pwd: changeme
-        kibana_pwd: changeme
-        logstash_pwd: changeme
-        beats_pwd: changeme
+        HEAP_SIZE: 1g
+        ELASTIC_PWD: changeme
+        KIBANA_PWD: changeme
+        LOGSTASH_PWD: changeme
+        BEATS_PWD: changeme
     volumes:
         - /srv/elasticsearch/data:/data
         - /srv/elasticsearch/config:/etc/elasticsearch/config/
@@ -103,11 +103,7 @@ elasticsearch:
 * [Dashboard](https://www.elastic.co/guide/en/kibana/current/dashboard.html) - displays a collection of saved visualizations,
   * You can find exported dashboards under `./dashboards` folder,
   * To import them in Kibana, go to `Managment->Saved Objects` panel,
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 657075094a0338991566f067091e89ff01ee3428
 * [Timelion](https://www.elastic.co/guide/en/kibana/current/timelion.html) - combine totally independent data sources within a single visualization.
 
 Configuration file is editable from `/srv/kibana/kibana.yml`.
@@ -123,9 +119,9 @@ kibana:
         - elasticsearch
     image: khezen/kibana
     environment:
-        kibana_pwd: changeme
-        elasticsearch_host: elasticsearch
-        elasticsearch_port: 9200
+        KIBANA_PWD: changeme
+        ELASTICSEARCH_HOST: elasticsearch
+        ELASTICSEARCH_PORT: 9200
     volumes:
         - /srv/kibana:/etc/kibana
     ports:
@@ -152,10 +148,10 @@ logstash:
         - elasticsearch
     image: khezen/logstash
     environment:
-        heap_size: 1g
-        logstash_pwd: changeme
-        elasticsearch_host: elasticsearch
-        elasticsearch_port: 9200    
+        HEAP_SIZE: 1g
+        LOGSTASH_PWD: changeme
+        ELASTICSEARCH_HOST: elasticsearch
+        ELASTICSEARCH_PORT: 9200    
     volumes:
         - /srv/logstash/conf.d:/etc/logstash/conf.d
     ports:
@@ -177,10 +173,10 @@ logstash:
 You need to provide elasticsearch `host:port` and credentials for `beats` user:
 ```
 output.elasticsearch:
-  hosts: ["<elasticsearch_host>:<elasticsearch_port>"]
+  hosts: ["<ELASTICSEARCH_HOST>:<ELASTICSEARCH_PORT>"]
   index: "packetbeat"
   user: beats
-  password: <beats_pwd>
+  password: <BEATS_PWD>
 
 ```
 Configuration file is located in `/etc/packetbeat/packetbeat.yml` if your are dealing with `packetbeat` for example.
