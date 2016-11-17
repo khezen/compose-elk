@@ -1,35 +1,18 @@
 [
   {
-    "_id": "Hardware-Overview",
+    "_id": "Monitor-CPU",
     "_type": "dashboard",
     "_source": {
-      "title": "Hardware Overview",
+      "title": "CPU",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[{\"id\":\"CPU-cores-breakdown\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":2,\"size_y\":3,\"col\":1,\"row\":1},{\"id\":\"CPU-Breakdown\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":4,\"size_y\":3,\"col\":3,\"row\":1},{\"id\":\"Memory-usage\",\"type\":\"visualization\",\"panelIndex\":3,\"size_x\":3,\"size_y\":3,\"col\":7,\"row\":1},{\"id\":\"Disk-bytes-read-slash-write\",\"type\":\"visualization\",\"panelIndex\":4,\"size_x\":3,\"size_y\":3,\"col\":10,\"row\":1}]",
-      "optionsJSON": "{\"darkTheme\":false}",
-      "uiStateJSON": "{\"P-2\":{\"vis\":{\"legendOpen\":false}},\"P-3\":{\"vis\":{\"legendOpen\":false}},\"P-1\":{\"vis\":{\"legendOpen\":false}},\"P-4\":{\"vis\":{\"legendOpen\":false}}}",
+      "panelsJSON": "[\n  {\n    \"col\": 1,\n    \"id\": \"CPU-Breakdown\",\n    \"panelIndex\": 1,\n    \"row\": 1,\n    \"size_x\": 10,\n    \"size_y\": 4,\n    \"type\": \"visualization\"\n  },\n  {\n    \"id\": \"Cores-Breakdown\",\n    \"type\": \"visualization\",\n    \"panelIndex\": 2,\n    \"size_x\": 2,\n    \"size_y\": 4,\n    \"col\": 11,\n    \"row\": 1\n  }\n]",
+      "optionsJSON": "{\n  \"darkTheme\": false\n}",
+      "uiStateJSON": "{\n  \"P-2\": {\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  }\n}",
       "version": 1,
       "timeRestore": false,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
-      }
-    }
-  },
-  {
-    "_id": "Monitor-Memmory",
-    "_type": "dashboard",
-    "_source": {
-      "title": "Monitor Memmory",
-      "hits": 0,
-      "description": "",
-      "panelsJSON": "[{\"id\":\"Memory-usage\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":6,\"size_y\":3,\"col\":1,\"row\":1},{\"id\":\"Swap-usage\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":6,\"size_y\":3,\"col\":7,\"row\":1}]",
-      "optionsJSON": "{\"darkTheme\":false}",
-      "uiStateJSON": "{}",
-      "version": 1,
-      "timeRestore": false,
-      "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+        "searchSourceJSON": "{\n  \"filter\": [\n    {\n      \"query\": {\n        \"query_string\": {\n          \"analyze_wildcard\": true,\n          \"query\": \"*\"\n        }\n      }\n    }\n  ]\n}"
       }
     }
   },
@@ -37,33 +20,33 @@
     "_id": "Monitor-Disk",
     "_type": "dashboard",
     "_source": {
-      "title": "Monitor Disk",
+      "title": "Disk I/O",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[{\"col\":1,\"id\":\"Disk-bytes-read-slash-write\",\"panelIndex\":1,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Disk-I-slash-O-Count\",\"panelIndex\":5,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"id\":\"Disk-I-slash-O-Time\",\"type\":\"visualization\",\"panelIndex\":6,\"size_x\":4,\"size_y\":3,\"col\":9,\"row\":1},{\"col\":1,\"id\":\"Disk-Space\",\"panelIndex\":4,\"row\":4,\"size_x\":12,\"size_y\":5,\"type\":\"visualization\"}]",
-      "optionsJSON": "{\"darkTheme\":false}",
-      "uiStateJSON": "{\"P-4\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}}",
+      "panelsJSON": "[\n  {\n    \"col\": 1,\n    \"id\": \"Disk-bytes-read-slash-write\",\n    \"panelIndex\": 1,\n    \"row\": 1,\n    \"size_x\": 4,\n    \"size_y\": 3,\n    \"type\": \"visualization\"\n  },\n  {\n    \"col\": 5,\n    \"id\": \"Disk-I-slash-O-Count\",\n    \"panelIndex\": 5,\n    \"row\": 1,\n    \"size_x\": 4,\n    \"size_y\": 3,\n    \"type\": \"visualization\"\n  },\n  {\n    \"id\": \"Disk-I-slash-O-Time\",\n    \"type\": \"visualization\",\n    \"panelIndex\": 6,\n    \"size_x\": 4,\n    \"size_y\": 3,\n    \"col\": 9,\n    \"row\": 1\n  },\n  {\n    \"col\": 1,\n    \"id\": \"Disk-Space\",\n    \"panelIndex\": 4,\n    \"row\": 4,\n    \"size_x\": 12,\n    \"size_y\": 5,\n    \"type\": \"visualization\"\n  }\n]",
+      "optionsJSON": "{\n  \"darkTheme\": false\n}",
+      "uiStateJSON": "{\n  \"P-4\": {\n    \"vis\": {\n      \"params\": {\n        \"sort\": {\n          \"columnIndex\": null,\n          \"direction\": null\n        }\n      }\n    }\n  }\n}",
       "version": 1,
       "timeRestore": false,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+        "searchSourceJSON": "{\n  \"filter\": [\n    {\n      \"query\": {\n        \"query_string\": {\n          \"analyze_wildcard\": true,\n          \"query\": \"*\"\n        }\n      }\n    }\n  ]\n}"
       }
     }
   },
   {
-    "_id": "Monitor-CPU",
+    "_id": "Monitor-Disk-Usage",
     "_type": "dashboard",
     "_source": {
-      "title": "Monitor CPU",
+      "title": "Disk Space",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[{\"id\":\"CPU-Breakdown\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":8,\"size_y\":4,\"col\":1,\"row\":1},{\"id\":\"CPU-cores-breakdown\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":4,\"size_y\":4,\"col\":9,\"row\":1}]",
-      "optionsJSON": "{\"darkTheme\":false}",
-      "uiStateJSON": "{}",
+      "panelsJSON": "[\n  {\n    \"col\": 1,\n    \"id\": \"Disk-Space\",\n    \"panelIndex\": 4,\n    \"row\": 4,\n    \"size_x\": 12,\n    \"size_y\": 5,\n    \"type\": \"visualization\"\n  }\n]",
+      "optionsJSON": "{\n  \"darkTheme\": false\n}",
+      "uiStateJSON": "{\n  \"P-4\": {\n    \"vis\": {\n      \"params\": {\n        \"sort\": {\n          \"columnIndex\": null,\n          \"direction\": null\n        }\n      }\n    }\n  }\n}",
       "version": 1,
       "timeRestore": false,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+        "searchSourceJSON": "{\n  \"filter\": [\n    {\n      \"query\": {\n        \"query_string\": {\n          \"analyze_wildcard\": true,\n          \"query\": \"*\"\n        }\n      }\n    }\n  ]\n}"
       }
     }
   },
@@ -71,16 +54,50 @@
     "_id": "Monitor-Network",
     "_type": "dashboard",
     "_source": {
-      "title": "Monitor Network",
+      "title": "Network",
       "hits": 0,
       "description": "",
-      "panelsJSON": "[{\"id\":\"Network-byte-up-slash-down\",\"type\":\"visualization\",\"panelIndex\":1,\"size_x\":3,\"size_y\":3,\"col\":1,\"row\":1},{\"id\":\"Network-packet-up-slash-down\",\"type\":\"visualization\",\"panelIndex\":4,\"size_x\":3,\"size_y\":3,\"col\":4,\"row\":1},{\"id\":\"Network-error-packet-up-slash-down\",\"type\":\"visualization\",\"panelIndex\":3,\"size_x\":3,\"size_y\":3,\"col\":7,\"row\":1},{\"id\":\"Network-dropped-packet-up-slash-down\",\"type\":\"visualization\",\"panelIndex\":2,\"size_x\":3,\"size_y\":3,\"col\":10,\"row\":1}]",
-      "optionsJSON": "{\"darkTheme\":false}",
-      "uiStateJSON": "{}",
+      "panelsJSON": "[\n  {\n    \"id\": \"Network-byte-up-slash-down\",\n    \"type\": \"visualization\",\n    \"panelIndex\": 1,\n    \"size_x\": 3,\n    \"size_y\": 3,\n    \"col\": 1,\n    \"row\": 1\n  },\n  {\n    \"id\": \"Network-packet-up-slash-down\",\n    \"type\": \"visualization\",\n    \"panelIndex\": 4,\n    \"size_x\": 3,\n    \"size_y\": 3,\n    \"col\": 4,\n    \"row\": 1\n  },\n  {\n    \"id\": \"Network-error-packet-up-slash-down\",\n    \"type\": \"visualization\",\n    \"panelIndex\": 3,\n    \"size_x\": 3,\n    \"size_y\": 3,\n    \"col\": 7,\n    \"row\": 1\n  },\n  {\n    \"id\": \"Network-dropped-packet-up-slash-down\",\n    \"type\": \"visualization\",\n    \"panelIndex\": 2,\n    \"size_x\": 3,\n    \"size_y\": 3,\n    \"col\": 10,\n    \"row\": 1\n  }\n]",
+      "optionsJSON": "{\n  \"darkTheme\": false\n}",
+      "uiStateJSON": "{\n  \"P-3\": {\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  },\n  \"P-2\": {\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  },\n  \"P-4\": {\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  },\n  \"P-1\": {\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  }\n}",
       "version": 1,
       "timeRestore": false,
       "kibanaSavedObjectMeta": {
-        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+        "searchSourceJSON": "{\n  \"filter\": [\n    {\n      \"query\": {\n        \"query_string\": {\n          \"query\": \"*\",\n          \"analyze_wildcard\": true\n        }\n      }\n    }\n  ]\n}"
+      }
+    }
+  },
+  {
+    "_id": "Hardware-Overview",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Overview",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[\n  {\n    \"id\": \"Cores-Breakdown\",\n    \"type\": \"visualization\",\n    \"panelIndex\": 5,\n    \"size_x\": 2,\n    \"size_y\": 3,\n    \"col\": 1,\n    \"row\": 1\n  },\n  {\n    \"col\": 3,\n    \"id\": \"CPU-Breakdown\",\n    \"panelIndex\": 1,\n    \"row\": 1,\n    \"size_x\": 5,\n    \"size_y\": 3,\n    \"type\": \"visualization\"\n  },\n  {\n    \"col\": 8,\n    \"id\": \"Memory-usage\",\n    \"panelIndex\": 3,\n    \"row\": 1,\n    \"size_x\": 5,\n    \"size_y\": 3,\n    \"type\": \"visualization\"\n  }\n]",
+      "optionsJSON": "{\n  \"darkTheme\": false\n}",
+      "uiStateJSON": "{\n  \"P-1\": {\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  },\n  \"P-2\": {\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  },\n  \"P-3\": {\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  },\n  \"P-5\": {\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  }\n}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": [\n    {\n      \"query\": {\n        \"query_string\": {\n          \"analyze_wildcard\": true,\n          \"query\": \"*\"\n        }\n      }\n    }\n  ]\n}"
+      }
+    }
+  },
+  {
+    "_id": "Monitor-Memmory",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Memory",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[\n  {\n    \"id\": \"Memory-usage\",\n    \"type\": \"visualization\",\n    \"panelIndex\": 1,\n    \"size_x\": 8,\n    \"size_y\": 3,\n    \"col\": 1,\n    \"row\": 1\n  },\n  {\n    \"id\": \"Swap-usage\",\n    \"type\": \"visualization\",\n    \"panelIndex\": 2,\n    \"size_x\": 4,\n    \"size_y\": 3,\n    \"col\": 9,\n    \"row\": 1\n  }\n]",
+      "optionsJSON": "{\n  \"darkTheme\": false\n}",
+      "uiStateJSON": "{\n  \"P-2\": {\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  },\n  \"P-1\": {\n    \"vis\": {\n      \"legendOpen\": false\n    }\n  }\n}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"filter\": [\n    {\n      \"query\": {\n        \"query_string\": {\n          \"query\": \"*\",\n          \"analyze_wildcard\": true\n        }\n      }\n    }\n  ]\n}"
       }
     }
   }
