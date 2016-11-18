@@ -82,8 +82,8 @@ elasticsearch:
         LOGSTASH_PWD: changeme
         BEATS_PWD: changeme
     volumes:
-        - /srv/elasticsearch/data:/data
-        - /srv/elasticsearch/config:/etc/elasticsearch/config/
+        - /srv/elasticsearch/data:/usr/share/elasticsearch/data
+        - /srv/elasticsearch/config:/usr/share/elasticsearch/config
     ports:
           - "9200:9200"
           - "9300:9300"
