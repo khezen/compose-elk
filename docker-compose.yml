@@ -10,7 +10,7 @@ services:
             BEATS_PWD: changeme
         volumes:
             - /srv/elasticsearch/data:/usr/share/elasticsearch/data
-            - /srv/elasticsearch/config:/etc/elasticsearch           
+            - /srv/elasticsearch/config:/usr/share/elasticsearch/config           
         ports:
              - "9200:9200"
              - "9300:9300"
