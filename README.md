@@ -65,7 +65,7 @@ By Default, The Elastic Stack exposes the following ports:
 
 ## Elasticsearch
 
-Configuration file is editable from `/srv/elasticsearch/config/elasticsearch.yml`.
+Configuration file is editable from `/etc/elasticsearch/elasticsearch.yml`.
 
 You can find default config [there](https://github.com/Khezen/docker-elasticsearch/blob/master/config/elasticsearch.yml).
 
@@ -82,8 +82,8 @@ elasticsearch:
         LOGSTASH_PWD: changeme
         BEATS_PWD: changeme
     volumes:
-        - /srv/elasticsearch/data:/usr/share/elasticsearch/data
-        - /srv/elasticsearch/config:/usr/share/elasticsearch/config
+        - /data/elasticsearch:/usr/share/elasticsearch/data
+        - /etc/elasticsearch:/usr/share/elasticsearch/config
     ports:
           - "9200:9200"
           - "9300:9300"
@@ -106,7 +106,7 @@ elasticsearch:
 
 * [Timelion](https://www.elastic.co/guide/en/kibana/current/timelion.html) - combine totally independent data sources within a single visualization.
 
-Configuration file is editable from `/srv/kibana/kibana.yml`.
+Configuration file is editable from `/etc/kibana/kibana.yml`.
 
 You can find default config [there](https://github.com/Khezen/docker-kibana/blob/master/config/default.yml).
 
@@ -123,7 +123,7 @@ kibana:
         ELASTICSEARCH_HOST: elasticsearch
         ELASTICSEARCH_PORT: 9200
     volumes:
-        - /srv/kibana:/etc/kibana
+        - /etc/kibana:/etc/kibana
     ports:
           - "5601:5601"
     networks:
@@ -133,7 +133,7 @@ kibana:
 
 ## logstash
 
-Configuration file is editable from `/srv/logstash/conf.d/logstash.conf`.
+Configuration file is editable from `/etc/logstash/logstash.conf`.
 
 You can find default config [there](https://github.com/Khezen/docker-logstash/blob/master/config/logstash.conf).
 
@@ -153,7 +153,7 @@ logstash:
         ELASTICSEARCH_HOST: elasticsearch
         ELASTICSEARCH_PORT: 9200    
     volumes:
-        - /srv/logstash/conf.d:/etc/logstash/conf.d
+        - /etc/logstash:/etc/logstash/conf.d
     ports:
           - "5000:5000"
           - "5001:5001"
