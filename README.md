@@ -13,7 +13,7 @@ By combining the massively popular Elasticsearch, Logstash, and Kibana, Elastic 
   * [metricbeat](https://www.elastic.co/guide/en/beats/metricbeat/current/index.html)
   * [filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/index.html) 
   * [packetbeat](https://www.elastic.co/guide/en/beats/packetbeat/current/index.html)
-  * [![](https://images.microbadger.com/badges/image/khezen/httpbeat.svg) httpbeat](https://hub.docker.com/r/khezen/httpbeat/)
+  * [![](https://images.microbadger.com/badges/image/khezen/httpbeat.svg) khezen/httpbeat](https://hub.docker.com/r/khezen/httpbeat/)
 
 
 # Setup
