@@ -242,3 +242,8 @@ The open source community has been hard at work developing new Beats. You can ch
 ### Graph
 
 [Graphing connections in your data](https://www.elastic.co/guide/en/x-pack/current/xpack-graph.html).
+
+
+# User Feedback
+## Issues
+If you have any problems with or questions about this project, please ask for help through a [GitHub issue](https://github.com/Khezen/docker-elk/issues).
