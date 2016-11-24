@@ -16,7 +16,7 @@ services:
              - "9300:9300"
         networks:
             - elk
-        restart: always
+        restart: unless-stopped
 
     kibana:
         links:
@@ -32,7 +32,7 @@ services:
              - "5601:5601"
         networks:
             - elk
-        restart: always
+        restart: unless-stopped
 
     logstash:
         links:
@@ -50,7 +50,7 @@ services:
              - "5001:5001/udp"
         networks:
             - elk
-        restart: always
+        restart: unless-stopped
 
 networks:
   elk:

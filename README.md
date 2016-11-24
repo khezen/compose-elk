@@ -10,6 +10,10 @@ By combining the massively popular Elasticsearch, Logstash, and Kibana, Elastic 
 * [<img src="https://static-www.elastic.co/fr/assets/blt9a26f88bfbd20eb5/icon-elasticsearch-bb.svg?q=802" width="50" height="50">](https://www.elastic.co/fr/products/elasticsearch) [![](https://images.microbadger.com/badges/image/khezen/elasticsearch.svg)](https://hub.docker.com/r/khezen/elasticsearch/) [khezen/elasticsearch](https://github.com/Khezen/docker-elasticsearch)
 * [<img src="https://static-www.elastic.co/fr/assets/blt946bc636d34a70eb/icon-logstash-bb.svg?q=600" width="50" height="50">](https://www.elastic.co/fr/products/logstash) [![](https://images.microbadger.com/badges/image/khezen/logstash.svg)](https://hub.docker.com/r/khezen/logstash/) [khezen/logstash](https://github.com/Khezen/docker-logstash)
 * [<img src="https://static-www.elastic.co/assets/blt121ead33d4ed1f55/icon-beats-bb.svg?q=600" width="50" height="50">](https://www.elastic.co/products/beats) [Beats](https://www.elastic.co/guide/en/beats/libbeat/current/installing-beats.html)
+  * [metricbeat](https://www.elastic.co/guide/en/beats/metricbeat/current/index.html)
+  * [filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/index.html) 
+  * [packetbeat](https://www.elastic.co/guide/en/beats/packetbeat/current/index.html)
+  * [![](https://images.microbadger.com/badges/image/khezen/httpbeat.svg) httpbeat](https://hub.docker.com/r/khezen/httpbeat/)
 
 
 # Setup
@@ -89,7 +93,7 @@ elasticsearch:
           - "9300:9300"
     networks:
         - elk
-    restart: always
+    restart: unless-stopped
 ```
 
 ## Kibana
@@ -128,7 +132,7 @@ kibana:
           - "5601:5601"
     networks:
         - elk
-    restart: always
+    restart: unless-stopped
 ```
 
 ## logstash
@@ -159,18 +163,17 @@ logstash:
           - "5001:5001"
     networks:
         - elk
-    restart: always
+    restart: unless-stopped
 ```
 
 ## Beats
 
-* [Overview](https://www.elastic.co/guide/en/beats/libbeat/current/beats-reference.html),
-* [Non offical beats](https://www.elastic.co/guide/en/beats/libbeat/current/community-beats.html),
-* [installation](https://www.elastic.co/guide/en/beats/libbeat/current/installing-beats.html).
+ The [Beats](https://www.elastic.co/guide/en/beats/libbeat/current/beats-reference.html) are open source data shippers that you install as agents on your servers to send different types of operational data to Elasticsearch
 
-### Configuration
 
-You need to provide elasticsearch `host:port` and credentials for `beats` user:
+### any beat
+
+You need to provide elasticsearch `host:port` and credentials for `beats` user in the configuration file:
 ```
 output.elasticsearch:
   hosts: ["<ELASTICSEARCH_HOST>:<ELASTICSEARCH_PORT>"]
@@ -179,7 +182,49 @@ output.elasticsearch:
   password: <BEATS_PWD>
 
 ```
-Configuration file is located in `/etc/packetbeat/packetbeat.yml` if your are dealing with `packetbeat` for example.
+
+### metricbeat
+
+You can find help with metricbeat installation [here](https://www.elastic.co/guide/en/beats/metricbeat/5.0/metricbeat-installation.html). 
+
+Configuration file is located in `/etc/metricbeat/metricbeat.yml`.
+
+You can find help with metricbeat configuration [here](https://www.elastic.co/guide/en/beats/metricbeat/5.0/metricbeat-configuration.html).
+
+### filebeat
+
+You can find help with filebeat installation [here](https://www.elastic.co/guide/en/beats/filebeat/5.0/filebeat-installation.html).
+
+Configuration file is located in `/etc/filebeat/filebeat.yml`.
+
+You can find help with filebeat configuration [here](https://www.elastic.co/guide/en/beats/filebeat/5.0/filebeat-configuration.html).
+
+### packetbeat
+
+You can find help with packetbeat installation [here](https://www.elastic.co/guide/en/beats/packetbeat/5.0/packetbeat-installation.html).
+
+Configuration file is located in `/etc/packetbeat/packetbeat.yml`.
+
+You can find help with packetbeat configuration [here](https://www.elastic.co/guide/en/beats/packetbeat/5.0/filebeat-configuration.html).
+
+### httpbeat
+
+installation:
+
+0. make sure you already started the elastic stack once using `./docker-compose.yml`
+    * This compose define a network declared as external network in `./beats/httpbeat/docker-compose.yml`
+1. go to `./beats/httpbeat/`
+2. execute `docker-compose up -d`
+
+Configuration file is located in `/etc/httpbeat/httpbeat.yml`.
+
+You can find help with httpbeat configuration [here](https://github.com/christiangalsterer/httpbeat/blob/master/docs/configuration.asciidoc).
+
+### Other beats
+
+The open source community has been hard at work developing new Beats. You can check out some of them [here](https://www.elastic.co/guide/en/beats/libbeat/current/community-beats.html).
+
+
 
 ## X-pack
 
