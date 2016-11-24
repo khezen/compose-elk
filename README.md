@@ -69,7 +69,7 @@ By Default, The Elastic Stack exposes the following ports:
 
 ## Elasticsearch
 
-Configuration file is editable from `/etc/elasticsearch/elasticsearch.yml`.
+Configuration file is located in `/etc/elasticsearch/elasticsearch.yml`.
 
 You can find default config [there](https://github.com/Khezen/docker-elasticsearch/blob/master/config/elasticsearch.yml).
 
@@ -110,7 +110,7 @@ elasticsearch:
 
 * [Timelion](https://www.elastic.co/guide/en/kibana/current/timelion.html) - combine totally independent data sources within a single visualization.
 
-Configuration file is editable from `/etc/kibana/kibana.yml`.
+Configuration file is located in `/etc/kibana/kibana.yml`.
 
 You can find default config [there](https://github.com/Khezen/docker-kibana/blob/master/config/default.yml).
 
@@ -137,7 +137,7 @@ kibana:
 
 ## logstash
 
-Configuration file is editable from `/etc/logstash/logstash.conf`.
+Configuration file is located in `/etc/logstash/logstash.conf`.
 
 You can find default config [there](https://github.com/Khezen/docker-logstash/blob/master/config/logstash.conf).
 
