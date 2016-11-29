@@ -220,6 +220,21 @@ Configuration file is located in `/etc/httpbeat/httpbeat.yml`.
 
 You can find help with httpbeat configuration [here](https://github.com/christiangalsterer/httpbeat/blob/master/docs/configuration.asciidoc).
 
+### execbeat
+
+installation:
+
+0. make sure you already started the elastic stack once using `./docker-compose.yml`
+    * This compose define a network declared as external network in `./beats/execbeat/docker-compose.yml`
+1. go to `./beats/execbeat/`
+2. execute `docker-compose up -d`
+
+Configuration file is located in `/etc/execbeat/execbeat.yml`.
+
+You can find help with execbeat configuration [here](https://github.com/christiangalsterer/execbeat/blob/master/docs/configuration.asciidoc).
+
+You can share scripts from your host to the container by adding them to `/usr/share/scripts`.
+
 ### Other beats
 
 The open source community has been hard at work developing new Beats. You can check out some of them [here](https://www.elastic.co/guide/en/beats/libbeat/current/community-beats.html).

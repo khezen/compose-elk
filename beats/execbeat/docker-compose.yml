@@ -1,0 +1,22 @@
+version: '2'
+services:    
+    execbeat:
+        external_links:
+            - dockerelk_elasticsearch1:elasticsearch
+        image: khezen/execbeat
+        environment:
+            EXECBEAT_USER: beats
+            EXECBEAT_PWD: changeme
+            ELASTICSEARCH_HOST: elasticsearch
+            ELASTICSEARCH_PORT: 9200
+        volumes:
+            - /etc/execbeat:/etc/execbeat
+            - /usr/share/scripts:/usr/share/scripts
+        networks:
+            - elk
+        restart: unless-stopped
+
+networks:
+    elk:
+        external:
+            name: dockerelk_elk
