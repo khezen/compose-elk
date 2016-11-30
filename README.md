@@ -233,7 +233,7 @@ Configuration file is located in `/etc/execbeat/execbeat.yml`.
 
 You can find help with execbeat configuration [here](https://github.com/christiangalsterer/execbeat/blob/master/docs/configuration.asciidoc).
 
-You can share scripts from your host to the container by adding them to `/usr/share/scripts`.
+You can share scripts from your host to the container by adding them to `/usr/share/execbeat/scripts`.
 
 ### Other beats
 

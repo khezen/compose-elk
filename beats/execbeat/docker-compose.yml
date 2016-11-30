@@ -11,7 +11,7 @@ services:
             ELASTICSEARCH_PORT: 9200
         volumes:
             - /etc/execbeat:/etc/execbeat
-            - /usr/share/scripts:/usr/share/scripts
+            - /usr/share/execbeat/scripts:/usr/share/execbeat/scripts
         networks:
             - elk
         restart: unless-stopped
