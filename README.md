@@ -14,6 +14,8 @@ By combining the massively popular Elasticsearch, Logstash, and Kibana, Elastic 
   * [filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/index.html) 
   * [packetbeat](https://www.elastic.co/guide/en/beats/packetbeat/current/index.html)
   * [![](https://images.microbadger.com/badges/image/khezen/httpbeat.svg) khezen/httpbeat](https://hub.docker.com/r/khezen/httpbeat/)
+  * [![](https://images.microbadger.com/badges/image/khezen/execbeat.svg) khezen/execbeat](https://hub.docker.com/r/khezen/execbeat/)
+* [![](https://images.microbadger.com/badges/image/khezen/elastalert.svg) khezen/elastalert](https://hub.docker.com/r/khezen/elastalert/)
 
 
 # Setup
@@ -65,9 +67,8 @@ By Default, The Elastic Stack exposes the following ports:
 * 9300: Elasticsearch TCP transport
 * 5601: Kibana
 
-# Configuration
 
-## Elasticsearch
+# Elasticsearch
 
 Configuration file is located in `/etc/elasticsearch/elasticsearch.yml`.
 
@@ -96,7 +97,7 @@ elasticsearch:
     restart: unless-stopped
 ```
 
-## Kibana
+# Kibana
 
 * [Discover](https://www.elastic.co/guide/en/kibana/current/discover.html) - explore your data,
 
@@ -135,7 +136,7 @@ kibana:
     restart: unless-stopped
 ```
 
-## logstash
+# logstash
 
 Configuration file is located in `/etc/logstash/logstash.conf`.
 
@@ -166,12 +167,12 @@ logstash:
     restart: unless-stopped
 ```
 
-## Beats
+# Beats
 
  The [Beats](https://www.elastic.co/guide/en/beats/libbeat/current/beats-reference.html) are open source data shippers that you install as agents on your servers to send different types of operational data to Elasticsearch
 
 
-### any beat
+## any beat
 
 You need to provide elasticsearch `host:port` and credentials for `beats` user in the configuration file:
 ```
@@ -183,7 +184,7 @@ output.elasticsearch:
 
 ```
 
-### metricbeat
+## metricbeat
 
 You can find help with metricbeat installation [here](https://www.elastic.co/guide/en/beats/metricbeat/5.0/metricbeat-installation.html). 
 
@@ -191,7 +192,7 @@ Configuration file is located in `/etc/metricbeat/metricbeat.yml`.
 
 You can find help with metricbeat configuration [here](https://www.elastic.co/guide/en/beats/metricbeat/5.0/metricbeat-configuration.html).
 
-### filebeat
+## filebeat
 
 You can find help with filebeat installation [here](https://www.elastic.co/guide/en/beats/filebeat/5.0/filebeat-installation.html).
 
@@ -207,7 +208,7 @@ Configuration file is located in `/etc/packetbeat/packetbeat.yml`.
 
 You can find help with packetbeat configuration [here](https://www.elastic.co/guide/en/beats/packetbeat/5.0/filebeat-configuration.html).
 
-### httpbeat
+## httpbeat
 
 installation:
 
@@ -220,7 +221,7 @@ Configuration file is located in `/etc/httpbeat/httpbeat.yml`.
 
 You can find help with httpbeat configuration [here](https://github.com/christiangalsterer/httpbeat/blob/master/docs/configuration.asciidoc).
 
-### execbeat
+## execbeat
 
 installation:
 
@@ -235,28 +236,28 @@ You can find help with execbeat configuration [here](https://github.com/christia
 
 You can share scripts from your host to the container by adding them to `/usr/share/execbeat/scripts`.
 
-### Other beats
+## Other beats
 
 The open source community has been hard at work developing new Beats. You can check out some of them [here](https://www.elastic.co/guide/en/beats/libbeat/current/community-beats.html).
 
+# Elastalert
 
+### What is Elastalert?
+[ElastAlert](https://github.com/Yelp/elastalert) is a simple framework for alerting on anomalies, spikes, or other patterns of interest from data in Elasticsearch.
+It is a nice replacement of the [Watcher](https://www.elastic.co/guide/en/x-pack/current/xpack-alerting.html#xpack-alerting) module if your are not willing to pay the x-pack subscription and still needs some alerting features.
 
-## X-pack
+## Installation
+0. make sure you already started the elastic stack once using `./docker-compose.yml`
+    * This compose define a network declared as external network in `./alerts/docker-compose.yml`
+1. go to `./alerts/`
+2. execute `docker-compose up -d`
 
-### Watcher
-[Alerting on Cluster and Index Events](https://www.elastic.co/guide/en/x-pack/current/xpack-alerting.html#xpack-alerting).
+## Configuration
+Configuration file is located in `/etc/elastalert/elastalert.yml`.
 
-[This getting started guide](https://www.elastic.co/guide/en/x-pack/current/watcher-getting-started.html) walks you through setting up alerting and creating your first watches, and introduces the building blocks you’ll use to create custom watches.
+You can find help with elastalert configuration [here](https://elastalert.readthedocs.io/en/latest/index.html).
 
-### Reporter
-
-[Reporting from Kibana](https://www.elastic.co/guide/en/x-pack/current/xpack-reporting.html).
-
-[This getting started guide](https://www.elastic.co/guide/en/x-pack/current/reporting-getting-started.html) walks you through setting up reporting and creating your first automated reports.
-
-### Graph
-
-[Graphing connections in your data](https://www.elastic.co/guide/en/x-pack/current/xpack-graph.html).
+You can share rules from host to the container by adding them to `/usr/share/elastalert/rules`
 
 
 # User Feedback
