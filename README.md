@@ -200,7 +200,7 @@ Configuration file is located in `/etc/filebeat/filebeat.yml`.
 
 You can find help with filebeat configuration [here](https://www.elastic.co/guide/en/beats/filebeat/5.0/filebeat-configuration.html).
 
-### packetbeat
+## packetbeat
 
 You can find help with packetbeat installation [here](https://www.elastic.co/guide/en/beats/packetbeat/5.0/packetbeat-installation.html).
 
