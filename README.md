@@ -86,6 +86,7 @@ elasticsearch:
         KIBANA_PWD: changeme
         LOGSTASH_PWD: changeme
         BEATS_PWD: changeme
+        ELASTALERT_PWD: changeme
     volumes:
         - /data/elasticsearch:/usr/share/elasticsearch/data
         - /etc/elasticsearch:/usr/share/elasticsearch/config
