@@ -10,9 +10,7 @@ By combining the massively popular Elasticsearch, Logstash, and Kibana, Elastic 
 * [<img src="https://static-www.elastic.co/fr/assets/blt9a26f88bfbd20eb5/icon-elasticsearch-bb.svg?q=802" width="50" height="50">](https://www.elastic.co/fr/products/elasticsearch) [![](https://images.microbadger.com/badges/image/khezen/elasticsearch.svg)](https://hub.docker.com/r/khezen/elasticsearch/) [khezen/elasticsearch](https://github.com/Khezen/docker-elasticsearch)
 * [<img src="https://static-www.elastic.co/fr/assets/blt946bc636d34a70eb/icon-logstash-bb.svg?q=600" width="50" height="50">](https://www.elastic.co/fr/products/logstash) [![](https://images.microbadger.com/badges/image/khezen/logstash.svg)](https://hub.docker.com/r/khezen/logstash/) [khezen/logstash](https://github.com/Khezen/docker-logstash)
 * [<img src="https://static-www.elastic.co/assets/blt121ead33d4ed1f55/icon-beats-bb.svg?q=600" width="50" height="50">](https://www.elastic.co/products/beats) [Beats](https://www.elastic.co/guide/en/beats/libbeat/current/installing-beats.html)
-  * [metricbeat](https://www.elastic.co/guide/en/beats/metricbeat/current/index.html)
-  * [filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/index.html) 
-  * [packetbeat](https://www.elastic.co/guide/en/beats/packetbeat/current/index.html)
+  * [topbeat](https://www.elastic.co/guide/en/beats/topbeat/current/index.html)
   * [![](https://images.microbadger.com/badges/image/khezen/httpbeat.svg) khezen/httpbeat](https://hub.docker.com/r/khezen/httpbeat/)
   * [![](https://images.microbadger.com/badges/image/khezen/execbeat.svg) khezen/execbeat](https://hub.docker.com/r/khezen/execbeat/)
 * [![](https://images.microbadger.com/badges/image/khezen/elastalert.svg) khezen/elastalert](https://hub.docker.com/r/khezen/elastalert/)
@@ -185,29 +183,13 @@ output.elasticsearch:
 
 ```
 
-## metricbeat
+## topbeat
 
-You can find help with metricbeat installation [here](https://www.elastic.co/guide/en/beats/metricbeat/5.0/metricbeat-installation.html). 
+You can find help with topbeat installation [here](https://www.elastic.co/guide/en/beats/topbeat/current/topbeat-installation.html). 
 
-Configuration file is located in `/etc/metricbeat/metricbeat.yml`.
+Configuration file is located in `/etc/topbeat/topbeat.yml`.
 
-You can find help with metricbeat configuration [here](https://www.elastic.co/guide/en/beats/metricbeat/5.0/metricbeat-configuration.html).
-
-## filebeat
-
-You can find help with filebeat installation [here](https://www.elastic.co/guide/en/beats/filebeat/5.0/filebeat-installation.html).
-
-Configuration file is located in `/etc/filebeat/filebeat.yml`.
-
-You can find help with filebeat configuration [here](https://www.elastic.co/guide/en/beats/filebeat/5.0/filebeat-configuration.html).
-
-## packetbeat
-
-You can find help with packetbeat installation [here](https://www.elastic.co/guide/en/beats/packetbeat/5.0/packetbeat-installation.html).
-
-Configuration file is located in `/etc/packetbeat/packetbeat.yml`.
-
-You can find help with packetbeat configuration [here](https://www.elastic.co/guide/en/beats/packetbeat/5.0/filebeat-configuration.html).
+You can find help with topbeat configuration [here](https://www.elastic.co/guide/en/beats/topbeat/current/topbeat-configuration.html).
 
 ## httpbeat
 
