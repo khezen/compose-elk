@@ -191,6 +191,19 @@ Configuration file is located in `/etc/topbeat/topbeat.yml`.
 
 You can find help with topbeat configuration [here](https://www.elastic.co/guide/en/beats/topbeat/current/topbeat-configuration.html).
 
+start with `sudo /etc/init.d/topbeat start`
+
+## packetbeat
+
+You can find help with packetbeat installation [here](https://www.elastic.co/guide/en/beats/packetbeat/1.3/packetbeat-installation.html). 
+
+Configuration file is located in `/etc/packetbeat/packetbeat.yml`.
+
+You can find help with packetbeat configuration [here](https://www.elastic.co/guide/en/beats/packetbeat/1.3/configuring-packetbeat.html).
+
+start with `sudo /etc/init.d/packetbeat start`
+
+
 ## httpbeat
 
 installation:
