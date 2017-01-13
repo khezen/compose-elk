@@ -178,8 +178,8 @@ You need to provide elasticsearch `host:port` and credentials for `beats` user i
 output.elasticsearch:
   hosts: ["<ELASTICSEARCH_HOST>:<ELASTICSEARCH_PORT>"]
   index: "packetbeat"
-  user: beats
-  password: <BEATS_PWD>
+  #user: beats
+  #password: <BEATS_PWD>
 
 ```
 
@@ -192,6 +192,7 @@ Configuration file is located in `/etc/topbeat/topbeat.yml`.
 You can find help with topbeat configuration [here](https://www.elastic.co/guide/en/beats/topbeat/current/topbeat-configuration.html).
 
 start with `sudo /etc/init.d/topbeat start`
+
 
 ## packetbeat
 
