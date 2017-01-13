@@ -193,6 +193,8 @@ Configuration file is located in `/etc/metricbeat/metricbeat.yml`.
 
 You can find help with metricbeat configuration [here](https://www.elastic.co/guide/en/beats/metricbeat/5.0/metricbeat-configuration.html).
 
+start with `sudo /etc/init.d/metricbeat start`
+
 ## filebeat
 
 You can find help with filebeat installation [here](https://www.elastic.co/guide/en/beats/filebeat/5.0/filebeat-installation.html).
@@ -201,6 +203,8 @@ Configuration file is located in `/etc/filebeat/filebeat.yml`.
 
 You can find help with filebeat configuration [here](https://www.elastic.co/guide/en/beats/filebeat/5.0/filebeat-configuration.html).
 
+start with `sudo /etc/init.d/filebeat start`
+
 ## packetbeat
 
 You can find help with packetbeat installation [here](https://www.elastic.co/guide/en/beats/packetbeat/5.0/packetbeat-installation.html).
@@ -208,6 +212,8 @@ You can find help with packetbeat installation [here](https://www.elastic.co/gui
 Configuration file is located in `/etc/packetbeat/packetbeat.yml`.
 
 You can find help with packetbeat configuration [here](https://www.elastic.co/guide/en/beats/packetbeat/5.0/filebeat-configuration.html).
+
+start with `sudo /etc/init.d/packetbeat start`
 
 ## httpbeat
 
