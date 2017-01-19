@@ -11,8 +11,6 @@ By combining the massively popular Elasticsearch, Logstash, and Kibana, Elastic 
 * [<img src="https://static-www.elastic.co/fr/assets/blt946bc636d34a70eb/icon-logstash-bb.svg?q=600" width="50" height="50">](https://www.elastic.co/fr/products/logstash) [![](https://images.microbadger.com/badges/image/khezen/logstash.svg)](https://hub.docker.com/r/khezen/logstash/) [khezen/logstash](https://github.com/Khezen/docker-logstash)
 * [<img src="https://static-www.elastic.co/assets/blt121ead33d4ed1f55/icon-beats-bb.svg?q=600" width="50" height="50">](https://www.elastic.co/products/beats) [Beats](https://www.elastic.co/guide/en/beats/libbeat/current/installing-beats.html)
   * [topbeat](https://www.elastic.co/guide/en/beats/topbeat/current/index.html)
-  * [![](https://images.microbadger.com/badges/image/khezen/httpbeat.svg) khezen/httpbeat](https://hub.docker.com/r/khezen/httpbeat/)
-  * [![](https://images.microbadger.com/badges/image/khezen/execbeat.svg) khezen/execbeat](https://hub.docker.com/r/khezen/execbeat/)
 * [![](https://images.microbadger.com/badges/image/khezen/elastalert.svg) khezen/elastalert](https://hub.docker.com/r/khezen/elastalert/)
 
 
@@ -203,39 +201,6 @@ Configuration file is located in `/etc/packetbeat/packetbeat.yml`.
 You can find help with packetbeat configuration [here](https://www.elastic.co/guide/en/beats/packetbeat/1.3/configuring-packetbeat.html).
 
 start with `sudo /etc/init.d/packetbeat start`
-
-
-## httpbeat
-
-installation:
-
-0. make sure you already started the elastic stack once using `./docker-compose.yml`
-    * This compose define a network declared as external network in `./beats/httpbeat/docker-compose.yml`
-1. go to `./beats/httpbeat/`
-2. execute `docker-compose up -d`
-
-Configuration file is located in `/etc/httpbeat/httpbeat.yml`.
-
-You can find help with httpbeat configuration [here](https://github.com/christiangalsterer/httpbeat/blob/master/docs/configuration.asciidoc).
-
-## execbeat
-
-installation:
-
-0. make sure you already started the elastic stack once using `./docker-compose.yml`
-    * This compose define a network declared as external network in `./beats/execbeat/docker-compose.yml`
-1. go to `./beats/execbeat/`
-2. execute `docker-compose up -d`
-
-Configuration file is located in `/etc/execbeat/execbeat.yml`.
-
-You can find help with execbeat configuration [here](https://github.com/christiangalsterer/execbeat/blob/master/docs/configuration.asciidoc).
-
-You can share scripts from your host to the container by adding them to `/usr/share/execbeat/scripts`.
-
-## Other beats
-
-The open source community has been hard at work developing new Beats. You can check out some of them [here](https://www.elastic.co/guide/en/beats/libbeat/current/community-beats.html).
 
 # Elastalert
 
