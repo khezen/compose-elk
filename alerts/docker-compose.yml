@@ -3,7 +3,7 @@ services:
     elastalert:
         external_links:
             - dockerelk_elasticsearch1:elasticsearch
-        image: khezen/elastalert
+        image: khezen/elastalert:support_es5
         environment:
             ELASTALERT_USER: elastalert
             ELASTALERT_PWD: changeme

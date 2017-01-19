@@ -1,7 +1,7 @@
 version: '2'
 services:
     elasticsearch:
-        image: khezen/elasticsearch
+        image: khezen/elasticsearch:5
         environment:
             HEAP_SIZE: 1g
             ELASTIC_PWD: changeme
@@ -22,7 +22,7 @@ services:
     kibana:
         links:
             - elasticsearch
-        image: khezen/kibana
+        image: khezen/kibana:5
         environment:
             KIBANA_PWD: changeme
             ELASTICSEARCH_HOST: elasticsearch
@@ -38,7 +38,7 @@ services:
     logstash:
         links:
             - elasticsearch
-        image: khezen/logstash
+        image: khezen/logstash:5
         environment:
             HEAP_SIZE: 1g
             LOGSTASH_PWD: changeme
