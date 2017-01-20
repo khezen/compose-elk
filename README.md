@@ -106,8 +106,6 @@ elasticsearch:
   * You can find exported dashboards under `./dashboards` folder,
   * To import them in Kibana, go to `Settings->Objects` panel,
 
-* [Timelion](https://www.elastic.co/guide/en/kibana/current/timelion.html) - combine totally independent data sources within a single visualization.
-
 Configuration file is located in `/etc/kibana/kibana.yml`.
 
 You can find default config [there](https://github.com/Khezen/docker-kibana/blob/master/config/default.yml).
