@@ -2,7 +2,7 @@ version: '2'
 services:    
     elastalert:
         external_links:
-            - dockerelk_elasticsearch1:elasticsearch
+            - dockerelk_elasticsearch_1:elasticsearch
         image: khezen/elastalert
         environment:
             ELASTALERT_USER: elastalert
