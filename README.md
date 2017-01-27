@@ -206,12 +206,6 @@ start with `sudo /etc/init.d/packetbeat start`
 [ElastAlert](https://github.com/Yelp/elastalert) is a simple framework for alerting on anomalies, spikes, or other patterns of interest from data in Elasticsearch.
 It is a nice replacement of the [Watcher](https://www.elastic.co/guide/en/x-pack/current/xpack-alerting.html#xpack-alerting) module if your are not willing to pay the x-pack subscription and still needs some alerting features.
 
-## Installation
-0. make sure you already started the elastic stack once using `./docker-compose.yml`
-    * This compose define a network declared as external network in `./alerts/docker-compose.yml`
-1. go to `./alerts/`
-2. execute `docker-compose up -d`
-
 ## Configuration
 Configuration file is located in `/etc/elastalert/elastalert.yml`.
 
