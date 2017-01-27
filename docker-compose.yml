@@ -8,7 +8,9 @@ services:
             KIBANA_PWD: changeme
             LOGSTASH_PWD: changeme
             BEATS_PWD: changeme
-            ELASTALERT_PWD: changeme
+            CA_PWD: changeme
+            KS_PWD: changeme
+            TS_PWD: changeme
         volumes:
             - /data/elasticsearch:/usr/share/elasticsearch/data
             - /etc/elasticsearch:/usr/share/elasticsearch/config           
@@ -21,14 +23,15 @@ services:
 
     kibana:
         links:
-            - elasticsearch
+            - elasticsearch:elasticsearch-0
         image: khezen/kibana:4.6
         environment:
             KIBANA_PWD: changeme
-            ELASTICSEARCH_HOST: elasticsearch
+            ELASTICSEARCH_HOST: elasticsearch-0
             ELASTICSEARCH_PORT: 9200
         volumes:
             - /etc/kibana:/etc/kibana
+            - /etc/elasticsearch/searchguard/ssl:/etc/elasticsearch/searchguard/ssl
         ports:
              - "5601:5601"
         networks:
@@ -37,18 +40,36 @@ services:
 
     logstash:
         links:
-            - elasticsearch
+            - elasticsearch:elasticsearch-0
         image: khezen/logstash:2.4
         environment:
             HEAP_SIZE: 1g
             LOGSTASH_PWD: changeme
-            ELASTICSEARCH_HOST: elasticsearch
-            ELASTICSEARCH_PORT: 9200    
+            ELASTICSEARCH_HOST: elasticsearch-0
+            ELASTICSEARCH_PORT: 9200
+            TS_PWD: changeme
         volumes:
             - /etc/logstash:/etc/logstash/conf.d
+            - /etc/elasticsearch/searchguard/ssl:/etc/elasticsearch/searchguard/ssl
         ports:
              - "5000:5000"
              - "5001:5001/udp"
+        networks:
+            - elk
+        restart: unless-stopped
+    
+    elastalert:
+        links:
+            - elasticsearch:elasticsearch-0
+        image: khezen/elastalert
+        environment:
+            ELASTALERT_USER: elastalert
+            ELASTALERT_PWD: changeme
+            ELASTICSEARCH_HOST: elasticsearch-0
+            ELASTICSEARCH_PORT: 9200
+        volumes:
+            - /etc/elastalert:/etc/elastalert
+            - /usr/share/elastalert/rules:/usr/share/elastalert/rules
         networks:
             - elk
         restart: unless-stopped
