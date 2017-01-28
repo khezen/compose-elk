@@ -87,7 +87,7 @@ services:
         restart: unless-stopped
 
   load_balancer:
-    image: dockercloud/haproxy:1.2.1
+    image: dockercloud/haproxy:1.6.2
     depends_on:
       - kibana
       - elasticsearch
