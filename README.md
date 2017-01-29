@@ -58,10 +58,30 @@ And then access Kibana by hitting [http://localhost:5601](http://localhost:5601)
 
 By Default, The Elastic Stack exposes the following ports:
 * 5000: Logstash TCP input.
-* 5001: Logstash UDP input.
 * 9200: Elasticsearch HTTP
 * 9300: Elasticsearch TCP transport
 * 5601: Kibana
+
+# Docker Swarm
+
+Deploy the Elastic Stack on your cluster using docker swarm:
+
+1. Connect to a manager node of the swarm
+2. `git clone https://github.com/khezen/docker-elk`
+3. `cd docker-elk`
+4. `git checkout 2`
+5. `docker stack deploy -c swarm-stack.yml elk`
+
+The number of replicas for each services can be edited from `swarm-stack.yml`:
+```
+...
+deploy:
+      mode: replicated
+      replicas: 2
+...
+```
+
+Services are load balanced using **HAProxy**.
 
 
 # Elasticsearch
