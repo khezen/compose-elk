@@ -21,6 +21,7 @@ services:
         CA_PWD: changeme
         KS_PWD: changeme
         TS_PWD: changeme
+        SERVICE_PORTS: 9200, 9300
         TCP_PORTS: 9200, 9300
     volumes:
       - es_config:/usr/share/elasticsearch/config
@@ -43,6 +44,7 @@ services:
         KIBANA_PWD: changeme
         ELASTICSEARCH_HOST: elasticsearch
         ELASTICSEARCH_PORT: 9200
+        SERVICE_PORTS: 5601
         TCP_PORTS: 5601
     volumes:
       - kibana_config:/etc/kibana
@@ -67,6 +69,7 @@ services:
         ELASTICSEARCH_HOST: elasticsearch
         ELASTICSEARCH_PORT: 9200   
         TS_PWD: changeme
+        SERVICE_PORTS: 5000
         TCP_PORTS: 5000
     volumes:
       - logstash_config:/etc/logstash/conf.d
