@@ -21,6 +21,7 @@ services:
         CA_PWD: changeme
         KS_PWD: changeme
         TS_PWD: changeme
+        TCP_PORTS: 9200, 9300
     volumes:
       - es_config:/usr/share/elasticsearch/config
       - es_data:/usr/share/elasticsearch/data
@@ -42,6 +43,7 @@ services:
         KIBANA_PWD: changeme
         ELASTICSEARCH_HOST: elasticsearch
         ELASTICSEARCH_PORT: 9200
+        TCP_PORTS: 5601
     volumes:
       - kibana_config:/etc/kibana
       - es_config:/etc/elasticsearch/
@@ -64,7 +66,8 @@ services:
         LOGSTASH_PWD: changeme
         ELASTICSEARCH_HOST: elasticsearch
         ELASTICSEARCH_PORT: 9200   
-        TS_PWD: changeme 
+        TS_PWD: changeme
+        TCP_PORTS: 5000
     volumes:
       - logstash_config:/etc/logstash/conf.d
       - es_config:/etc/elasticsearch/
@@ -73,18 +76,25 @@ services:
       - elk
     
   elastalert:
-        image: khezen/elastalert
-        environment:
-          ELASTALERT_USER: elastalert
-          ELASTALERT_PWD: changeme
-          ELASTICSEARCH_HOST: elasticsearch
-          ELASTICSEARCH_PORT: 9200
-        volumes:
-            - elastalert_config:/etc/elastalert
-            - elastalert_rules:/usr/share/elastalert/rules
-        networks:
-            - elk
-        restart: unless-stopped
+    image: khezen/elastalert
+    deploy:
+      mode: replicated
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+    environment:
+      ELASTALERT_USER: elastalert
+      ELASTALERT_PWD: changeme
+      ELASTICSEARCH_HOST: elasticsearch
+      ELASTICSEARCH_PORT: 9200
+    volumes:
+        - elastalert_config:/etc/elastalert
+        - elastalert_rules:/usr/share/elastalert/rules
+    networks:
+        - elk
 
   load_balancer:
     image: dockercloud/haproxy:1.6.2
@@ -96,23 +106,18 @@ services:
       mode: global
       restart_policy:
         condition: none
+      placement:
+        constraints:
+          - node.role == manager
     environment:
-      ADDITIONAL_SERVICES: docker_elk:kibana,docker_elk:elasticsearch,docker_elk:logstash
-      SERVICE_PORTS: 5601,9200,9300,5000
-      TCP_PORTS: 9300,5000
-      MONITOR_PORT: 80
-      MONITOR_URI: /ping
       STATS_PORT: 9000
       STATS_AUTH: stats:changeme
-      CERT_FOLDER: /etc/elasticsearch/searchguard/ssl/ca/
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - es_config:/etc/elasticsearch/
     networks:
       - elk
     ports:
-      - "8081:80"
-      - "8082:9000"
+      - "8081:9000"
       - "5601:5601"
       - "9200:9200"
       - "9300:9300"
