@@ -60,10 +60,31 @@ And then access Kibana by hitting [http://localhost:5601](http://localhost:5601)
 
 By Default, The Elastic Stack exposes the following ports:
 * 5000: Logstash TCP input.
-* 5001: Logstash UDP input.
 * 9200: Elasticsearch HTTP
 * 9300: Elasticsearch TCP transport
 * 5601: Kibana
+
+
+# Docker Swarm
+
+Deploy the Elastic Stack on your cluster using docker swarm:
+
+1. Connect to a manager node of the swarm
+2. `git clone https://github.com/khezen/docker-elk`
+3. `cd docker-elk`
+5. `docker stack deploy -c swarm-stack.yml elk`
+
+The number of replicas for each services can be edited from `swarm-stack.yml`:
+```
+...
+deploy:
+      mode: replicated
+      replicas: 2
+...
+```
+
+Services are load balanced using **HAProxy**.
+
 
 
 # Elasticsearch
@@ -218,12 +239,6 @@ start with `sudo /etc/init.d/packetbeat start`
 ### What is Elastalert?
 [ElastAlert](https://github.com/Yelp/elastalert) is a simple framework for alerting on anomalies, spikes, or other patterns of interest from data in Elasticsearch.
 It is a nice replacement of the [Watcher](https://www.elastic.co/guide/en/x-pack/current/xpack-alerting.html#xpack-alerting) module if your are not willing to pay the x-pack subscription and still needs some alerting features.
-
-## Installation
-0. make sure you already started the elastic stack once using `./docker-compose.yml`
-    * This compose define a network declared as external network in `./alerts/docker-compose.yml`
-1. go to `./alerts/`
-2. execute `docker-compose up -d`
 
 ## Configuration
 Configuration file is located in `/etc/elastalert/elastalert.yml`.
