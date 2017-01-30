@@ -109,7 +109,7 @@ services:
     deploy:
       mode: global
       restart_policy:
-        condition: none
+        condition: any
       placement:
         constraints:
           - node.role == manager
