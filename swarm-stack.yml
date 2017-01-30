@@ -14,6 +14,7 @@ services:
         condition: on-failure
     environment:
         HEAP_SIZE: 1g
+        MINIMUM_MASTER_NODES: 2
         ELASTIC_PWD: changeme
         KIBANA_PWD: changeme
         LOGSTASH_PWD: changeme
