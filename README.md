@@ -89,7 +89,7 @@ Services are load balanced using **HAProxy**.
 
 # Elasticsearch
 
-Configuration file is located in `/etc/elasticsearch/elasticsearch.yml`.
+Configuration file is located in `/var/lib/docker/volumes/es_config/elasticsearch.yml`.
 
 You can find default config [there](https://github.com/Khezen/docker-elasticsearch/blob/master/config/elasticsearch.yml).
 
@@ -107,8 +107,8 @@ elasticsearch:
         BEATS_PWD: changeme
         ELASTALERT_PWD: changeme
     volumes:
-        - /data/elasticsearch:/usr/share/elasticsearch/data
-        - /etc/elasticsearch:/usr/share/elasticsearch/config
+        - es_data:/usr/share/elasticsearch/data
+        - es_config:/usr/share/elasticsearch/config
     ports:
           - "9200:9200"
           - "9300:9300"
@@ -131,7 +131,7 @@ elasticsearch:
 
 * [Timelion](https://www.elastic.co/guide/en/kibana/current/timelion.html) - combine totally independent data sources within a single visualization.
 
-Configuration file is located in `/etc/kibana/kibana.yml`.
+Configuration file is located in `/var/lib/docker/volumes/kibana_config/kibana.yml`.
 
 You can find default config [there](https://github.com/Khezen/docker-kibana/blob/master/config/default.yml).
 
@@ -148,7 +148,7 @@ kibana:
         ELASTICSEARCH_HOST: elasticsearch
         ELASTICSEARCH_PORT: 9200
     volumes:
-        - /etc/kibana:/etc/kibana
+        - kibana_config:/etc/kibana
     ports:
           - "5601:5601"
     networks:
@@ -158,7 +158,7 @@ kibana:
 
 # logstash
 
-Configuration file is located in `/etc/logstash/logstash.conf`.
+Configuration file is located in `/var/lib/docker/volumes/logstash_config/logstash.conf`.
 
 You can find default config [there](https://github.com/Khezen/docker-logstash/blob/master/config/logstash.conf).
 
@@ -178,7 +178,7 @@ logstash:
         ELASTICSEARCH_HOST: elasticsearch
         ELASTICSEARCH_PORT: 9200    
     volumes:
-        - /etc/logstash:/etc/logstash/conf.d
+        - logstash_config:/etc/logstash/conf.d
     ports:
           - "5000:5000"
           - "5001:5001"
@@ -241,11 +241,11 @@ start with `sudo /etc/init.d/packetbeat start`
 It is a nice replacement of the [Watcher](https://www.elastic.co/guide/en/x-pack/current/xpack-alerting.html#xpack-alerting) module if your are not willing to pay the x-pack subscription and still needs some alerting features.
 
 ## Configuration
-Configuration file is located in `/etc/elastalert/elastalert.yml`.
+Configuration file is located in `/var/lib/docker/volumes/elastalert_config/elastalert.yml`.
 
 You can find help with elastalert configuration [here](https://elastalert.readthedocs.io/en/latest/index.html).
 
-You can share rules from host to the container by adding them to `/usr/share/elastalert/rules`
+You can share rules from host to the container by adding them to `/var/lib/docker/volumes/elastalert_rules`
 
 
 # User Feedback
