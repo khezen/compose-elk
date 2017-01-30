@@ -75,8 +75,6 @@ services:
         restart: unless-stopped
 
 volumes:
-  certificates:
-    driver: local
   es_config:
     driver: local
   es_data:
