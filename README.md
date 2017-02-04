@@ -11,18 +11,18 @@ By combining the massively popular Elasticsearch, Logstash, and Kibana, Elastic 
 * [<img src="https://static-www.elastic.co/fr/assets/blt946bc636d34a70eb/icon-logstash-bb.svg?q=600" width="50" height="50">](https://www.elastic.co/fr/products/logstash) [![](https://images.microbadger.com/badges/image/khezen/logstash.svg)](https://hub.docker.com/r/khezen/logstash/) [khezen/logstash](https://github.com/Khezen/docker-logstash)
 * [<img src="https://static-www.elastic.co/assets/blt121ead33d4ed1f55/icon-beats-bb.svg?q=600" width="50" height="50">](https://www.elastic.co/products/beats) [Beats](https://www.elastic.co/guide/en/beats/libbeat/current/installing-beats.html)
   * [metricbeat](https://www.elastic.co/guide/en/beats/metricbeat/current/index.html)
-  * [filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/index.html) 
+  * [filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/index.html)
   * [packetbeat](https://www.elastic.co/guide/en/beats/packetbeat/current/index.html)
-* [![](https://images.microbadger.com/badges/image/khezen/elastalert.svg) khezen/elastalert](https://hub.docker.com/r/khezen/elastalert/)
+*  [![](https://images.microbadger.com/badges/image/khezen/elastalert.svg) khezen/elastalert](https://hub.docker.com/r/khezen/elastalert/)
 
 
 # Setup
 
 ## Install Docker
 
-1. [Docker engine](https://docs.docker.com/engine/installation/)
-2. [Docker compose](https://docs.docker.com/compose/install/)
-3. Clone this repository: `git clone https://github.com/khezen/docker-elk`
+1.  [Docker engine](https://docs.docker.com/engine/installation/)
+2.  [Docker compose](https://docs.docker.com/compose/install/)
+3.  Clone this repository: `git clone https://github.com/khezen/docker-elk`
 
 ## [File Descriptors and MMap](https://www.elastic.co/guide/en/elasticsearch/guide/current/_file_descriptors_and_mmap.html) (Linux Only)
 
@@ -89,7 +89,7 @@ Services are load balanced using **HAProxy**.
 
 # Elasticsearch
 
-Configuration file is located in `/var/lib/docker/volumes/es_config/elasticsearch.yml`.
+Configuration file is located in `/etc/elasticsearch/elasticsearch.yml`.
 
 You can find default config [there](https://github.com/Khezen/docker-elasticsearch/blob/master/config/elasticsearch.yml).
 
@@ -107,8 +107,8 @@ elasticsearch:
         BEATS_PWD: changeme
         ELASTALERT_PWD: changeme
     volumes:
-        - es_data:/usr/share/elasticsearch/data
-        - es_config:/usr/share/elasticsearch/config
+        - /data/elasticsearch:/usr/share/elasticsearch/data
+        - /etc/elasticsearch:/usr/share/elasticsearch/config
     ports:
           - "9200:9200"
           - "9300:9300"
@@ -131,7 +131,7 @@ elasticsearch:
 
 * [Timelion](https://www.elastic.co/guide/en/kibana/current/timelion.html) - combine totally independent data sources within a single visualization.
 
-Configuration file is located in `/var/lib/docker/volumes/kibana_config/kibana.yml`.
+Configuration file is located in `/etc/kibana/kibana.yml`.
 
 You can find default config [there](https://github.com/Khezen/docker-kibana/blob/master/config/default.yml).
 
@@ -148,7 +148,7 @@ kibana:
         ELASTICSEARCH_HOST: elasticsearch
         ELASTICSEARCH_PORT: 9200
     volumes:
-        - kibana_config:/etc/kibana
+        - /etc/kibana:/etc/kibana
     ports:
           - "5601:5601"
     networks:
@@ -158,7 +158,7 @@ kibana:
 
 # logstash
 
-Configuration file is located in `/var/lib/docker/volumes/logstash_config/logstash.conf`.
+Configuration file is located in `/etc/logstash/logstash.conf`.
 
 You can find default config [there](https://github.com/Khezen/docker-logstash/blob/master/config/logstash.conf).
 
@@ -178,7 +178,7 @@ logstash:
         ELASTICSEARCH_HOST: elasticsearch
         ELASTICSEARCH_PORT: 9200    
     volumes:
-        - logstash_config:/etc/logstash/conf.d
+        - /etc/logstash:/etc/logstash/conf.d
     ports:
           - "5000:5000"
           - "5001:5001"
@@ -206,7 +206,7 @@ output.elasticsearch:
 
 ## metricbeat
 
-You can find help with metricbeat installation [here](https://www.elastic.co/guide/en/beats/metricbeat/5.0/metricbeat-installation.html). 
+You can find help with metricbeat installation [here](https://www.elastic.co/guide/en/beats/metricbeat/5.0/metricbeat-installation.html).
 
 Configuration file is located in `/etc/metricbeat/metricbeat.yml`.
 
@@ -241,11 +241,11 @@ start with `sudo /etc/init.d/packetbeat start`
 It is a nice replacement of the [Watcher](https://www.elastic.co/guide/en/x-pack/current/xpack-alerting.html#xpack-alerting) module if your are not willing to pay the x-pack subscription and still needs some alerting features.
 
 ## Configuration
-Configuration file is located in `/var/lib/docker/volumes/elastalert_config/elastalert.yml`.
+Configuration file is located in `/etc/elastalert/elastalert.yml`.
 
 You can find help with elastalert configuration [here](https://elastalert.readthedocs.io/en/latest/index.html).
 
-You can share rules from host to the container by adding them to `/var/lib/docker/volumes/elastalert_rules`
+You can share rules from host to the container by adding them to `/usr/share/elastalert/rules`
 
 
 # User Feedback
