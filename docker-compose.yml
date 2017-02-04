@@ -13,8 +13,8 @@ services:
             KS_PWD: changeme
             TS_PWD: changeme
         volumes:
-            - es_data:/usr/share/elasticsearch/data
-            - es_config:/usr/share/elasticsearch/config           
+             - /etc/elasticsearch:/usr/share/elasticsearch/config
+             - /data/elasticsearch:/usr/share/elasticsearch/data
         ports:
              - "9200:9200"
              - "9300:9300"
@@ -31,8 +31,8 @@ services:
             ELASTICSEARCH_HOST: elasticsearch
             ELASTICSEARCH_PORT: 9200
         volumes:
-            - kibana_config:/etc/kibana
-            - es_config:/etc/elasticsearch/
+            - /etc/kibana:/etc/kibana
+            - /etc/elasticsearch/searchguard/ssl:/etc/elasticsearch/searchguard/ssl
         ports:
              - "5601:5601"
         networks:
@@ -50,15 +50,15 @@ services:
             ELASTICSEARCH_PORT: 9200
             TS_PWD: changeme
         volumes:
-            - logstash_config:/etc/logstash/conf.d
-            - es_config:/etc/elasticsearch/
+            - /etc/logstash:/etc/logstash/conf.d
+            - /etc/elasticsearch/searchguard/ssl:/etc/elasticsearch/searchguard/ssl
         ports:
              - "5000:5000"
              - "5001:5001/udp"
         networks:
             - elk
         restart: unless-stopped
-    
+
     elastalert:
         links:
             - elasticsearch
@@ -69,25 +69,11 @@ services:
             ELASTICSEARCH_HOST: elasticsearch
             ELASTICSEARCH_PORT: 9200
         volumes:
-            - elastalert_config:/etc/elastalert
-            - elastalert_rules:/usr/share/elastalert/rules
+            - /etc/elastalert:/etc/elastalert
+            - /usr/share/elastalert/rules:/usr/share/elastalert/rules
         networks:
             - elk
         restart: unless-stopped
-
-volumes:
-  es_config:
-    driver: local
-  es_data:
-    driver: local
-  kibana_config:
-    driver: local
-  logstash_config:
-    driver: local
-  elastalert_config:
-    driver: local
-  elastalert_rules:
-    driver: local
 
 networks:
   elk:
