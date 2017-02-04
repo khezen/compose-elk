@@ -3,7 +3,7 @@ version: '3'
 services:
 
   elasticsearch:
-    image: khezen/elasticsearch:5
+    image: khezen/elasticsearch:2
     deploy:
       mode: replicated
       replicas: 3
@@ -14,7 +14,6 @@ services:
         condition: on-failure
     environment:
         HEAP_SIZE: 1g
-        HOSTS: '["elasticsearch"]'
         MINIMUM_MASTER_NODES: 2
         ELASTIC_PWD: changeme
         KIBANA_PWD: changeme
@@ -33,7 +32,7 @@ services:
       - elk
 
   kibana:
-    image: khezen/kibana:5
+    image: khezen/kibana:4
     deploy:
       mode: replicated
       replicas: 2
@@ -56,7 +55,7 @@ services:
       - elk
 
   logstash:
-    image: khezen/logstash:5
+    image: khezen/logstash:2
     deploy:
       mode: replicated
       replicas: 2
@@ -81,7 +80,7 @@ services:
       - elk
 
   elastalert:
-    image: khezen/elastalert:support_es5
+    image: khezen/elastalert
     deploy:
       mode: replicated
       replicas: 1
