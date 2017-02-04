@@ -149,6 +149,7 @@ kibana:
         ELASTICSEARCH_PORT: 9200
     volumes:
         - /etc/kibana:/etc/kibana
+        - /etc/elasticsearch/searchguard/ssl:/etc/searchguard/ssl
     ports:
           - "5601:5601"
     networks:
@@ -179,6 +180,7 @@ logstash:
         ELASTICSEARCH_PORT: 9200    
     volumes:
         - /etc/logstash:/etc/logstash/conf.d
+        - /etc/elasticsearch/searchguard/ssl:/etc/elasticsearch/searchguard/ssl
     ports:
           - "5000:5000"
           - "5001:5001"
