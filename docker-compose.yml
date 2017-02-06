@@ -62,7 +62,7 @@ services:
     elastalert:
         links:
             - elasticsearch
-        image: khezen/elastalert:support_es5
+        image: khezen/elastalert
         environment:
             ELASTALERT_USER: elastalert
             ELASTALERT_PWD: changeme
